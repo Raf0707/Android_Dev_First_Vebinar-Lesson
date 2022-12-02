@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="hello_java">Hello, Java!</string>
+    <string name="hello_dimas">Hello, Dimas</string>
+    <string name="save">Save</string>
+
+
+</resources>
