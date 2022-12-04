@@ -46,7 +46,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/saveAge"
+        android:id="@+id/saveAgeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
