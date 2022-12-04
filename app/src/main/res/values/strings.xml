@@ -3,6 +3,8 @@
     <string name="hello_java">Hello, Java!</string>
     <string name="hello_dimas">Hello, Dimas</string>
     <string name="save">Save</string>
-
+    <string name="hello_ivan">Hello, Ivan</string>
+    <string name="android_developers">Android Developers</string>
+    <string name="edit">edit</string>
 
 </resources>
