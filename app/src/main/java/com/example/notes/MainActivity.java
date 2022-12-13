@@ -6,19 +6,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.notes.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button saveAge;
-    private Button editAgeButton;
-    private EditText editAge;
-    private View view;
+public class MainActivity extends AppCompatActivity {
+    //implements View.OnClickListener {
+    //private Button saveAge;
+    //private Button editAgeButton;
+    //private EditText editAge;
+    //private View view;
+
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        /*
         editAge = findViewById(R.id.editAge);
         editAge.setOnClickListener(this);
 
@@ -27,13 +35,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editAgeButton = findViewById(R.id.editAgeButton);
         editAgeButton.setOnClickListener(this);
 
+         */
+
+
+        binding.helloButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                helloVim(view);
+            }
+        });
+
+
+        binding.helloButton.setOnClickListener(view -> {
+            helloVim(view);
+        });
+
+        binding.saveAgeButton.setOnClickListener(view -> {
+            saveAge(view);
+        });
+
+        binding.editAgeButton.setOnClickListener(view -> {
+            binding.editAge.setCursorVisible(true);
+        });
+
     }
 
     public void saveAge(View view) {
-        editAge.setCursorVisible(false);
+        binding.editAge.setCursorVisible(false);
         Snackbar.make(view, "Возраст сохранен", Snackbar.LENGTH_SHORT)
         .setAction("Изменить", v -> {
-            editAge.setCursorVisible(true);
+            binding.editAge.setCursorVisible(true);
             Toast toast = Toast.makeText(getApplicationContext(),
                     "измените возраст", Toast.LENGTH_SHORT);
             toast.show();
@@ -41,6 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void helloVim(View view) {
+        Snackbar.make(view, "Hello, Vim", Snackbar.LENGTH_SHORT)
+                .show();
+    }
+
+    /*
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -55,5 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+     */
 
 }
